@@ -50,3 +50,6 @@ include(":runtimes:identityhub")
 include(":runtimes:identityhub-memory")
 include(":runtimes:issuerservice")
 include(":runtimes:issuerservice-memory")
+
+include(":runtimes:dev:issuerservice-dev")
+include(":runtimes:dev:identityhub-dev")
