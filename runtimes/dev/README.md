@@ -2,7 +2,7 @@
 
 This folder contains minimal versions of the identity hub and the issuer service, which are specifically meant serve the needs of developers who are working in X-projects in their initial steps towards defining their own credentials and want to test their EDC runtimes against a somewhat realistic identity environment, using for instance a locally running docker compose setup.
 
-Before you go on, please make sure to have a Java JDK version 21 installed, when running these commands. Java 25 unfortunately won't work currently. 
+Before you go on, please make sure to have a Java JDK version 17 installed, when running these commands. Java 25 unfortunately won't work currently, because of the inherited settings from the upstream project (Gradle version 8 does not support Java 25). If you are having a JDK version 21 as default installed in your shell, it _might_ work, but only if [gradle's auto-detection](https://docs.gradle.org/current/userguide/toolchains.html#sec:auto_detection) manages to find a JDK version 17 somewhere on your system. We regret these inconveniences. This can be somewhat mitigated by using [SDKMAN](https://sdkman.io/), a tool that enables you to conveniently switch between different Java versions. 
 
 In order to create the docker images, please run (from the project root directory)
 
