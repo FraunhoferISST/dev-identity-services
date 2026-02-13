@@ -46,7 +46,6 @@ dependencies {
     implementation("org.eclipse.edc:issuerservice-presentation-attestations:0.14.1")
 
     runtimeOnly(project(":extensions:seed:super-user"))
-    runtimeOnly(project(":extensions:monitor:colored-jdk-monitor"))
     runtimeOnly(libs.postgres)
 
     runtimeOnly("org.slf4j:slf4j-simple:2.0.17")

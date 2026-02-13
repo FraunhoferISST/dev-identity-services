@@ -38,8 +38,7 @@ dependencies {
     implementation("org.eclipse.edc:identityhub-feature-sql-bom:$edcVersion")
 
     implementation("org.eclipse.edc:vault-hashicorp:$edcVersion")
-
-    implementation(project(":extensions:monitor:colored-jdk-monitor"))
+    
     implementation("com.nimbusds:nimbus-jose-jwt:10.7")
     implementation("org.bouncycastle:bcpkix-jdk18on:1.83")
     implementation("com.google.crypto.tink:tink:1.20.0")
