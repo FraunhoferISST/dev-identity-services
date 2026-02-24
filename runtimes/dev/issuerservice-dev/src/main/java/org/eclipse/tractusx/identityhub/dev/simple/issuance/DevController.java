@@ -46,16 +46,15 @@ import static org.eclipse.edc.identityhub.spi.participantcontext.ParticipantCont
 @Path("v1alpha/credentialsetup/{participantContextId}")
 public class DevController {
 
-    private final AuthorizationService authorizationService;
     private final DevCredentialGenerator credentialGenerator;
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final String apiKey;
 
-    DevController(AuthorizationService authorizationService, DevCredentialGenerator credentialGenerator,
+    DevController(DevCredentialGenerator credentialGenerator,
                   ServiceExtensionContext context, String apiKey) {
         this.credentialGenerator = credentialGenerator;
-        this.authorizationService = authorizationService;
         this.apiKey = apiKey;
+        context.getMonitor().withPrefix(this.getClass().getSimpleName()).debug("Initializing DevController");
     }
 
     @POST

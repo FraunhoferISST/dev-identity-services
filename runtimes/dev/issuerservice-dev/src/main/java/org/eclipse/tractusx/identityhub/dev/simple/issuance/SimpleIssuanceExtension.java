@@ -47,9 +47,6 @@ public class SimpleIssuanceExtension implements ServiceExtension {
     private WebService webService;
 
     @Inject
-    private AuthorizationService authorizationService;
-
-    @Inject
     private CredentialGeneratorRegistry credentialGeneratorRegistry;
 
     @Inject
@@ -88,7 +85,7 @@ public class SimpleIssuanceExtension implements ServiceExtension {
         credentialGeneratorRegistry.addGenerator(CredentialFormat.VC1_0_JWT, devCredentialGenerator);
 
         // setup REST-Api controller for runtime management access
-        DevController demonstratorController = new DevController(authorizationService, devCredentialGenerator, context, apiKey);
+        DevController demonstratorController = new DevController(devCredentialGenerator, context, apiKey);
         webService.registerResource(IdentityHubApiContext.ISSUERADMIN, demonstratorController);
     }
 
