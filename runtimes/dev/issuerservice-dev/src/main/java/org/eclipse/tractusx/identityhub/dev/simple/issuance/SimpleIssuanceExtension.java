@@ -78,7 +78,7 @@ public class SimpleIssuanceExtension implements ServiceExtension {
         context.getMonitor().withPrefix(this.getClass().getSimpleName()).info("Using as default Config: " + issuerConfig);
 
         String apiKey = context.getSetting(API_KEY, "YWRtaW4.adminKey");
-
+        context.getMonitor().withPrefix(this.getClass().getSimpleName()).info("Using API Key: " + apiKey);
         // replace default JwtCredentialGenerator with DevCredentialGenerator
         JwtCredentialGenerator defaultJwtCredentialGenerator = new JwtCredentialGenerator(new JwtGenerationService(jwsSignerProvider), clock);
         var devCredentialGenerator = new DevCredentialGenerator(defaultJwtCredentialGenerator, context, issuerConfig);
