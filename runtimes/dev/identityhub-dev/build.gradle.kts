@@ -36,7 +36,7 @@ dependencies {
     implementation("org.eclipse.edc:identityhub-bom:$edcVersion")
     implementation("org.eclipse.edc:identity-hub-spi:${edcVersion}")
     implementation("org.eclipse.edc:identityhub-feature-sql-bom:$edcVersion")
-
+    implementation("org.eclipse.edc:participantcontext-config-store-sql$edcVersion")
     implementation("org.eclipse.edc:vault-hashicorp:$edcVersion")
 
     implementation("com.nimbusds:nimbus-jose-jwt:10.7")

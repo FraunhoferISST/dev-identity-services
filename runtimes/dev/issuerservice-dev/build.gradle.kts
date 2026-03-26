@@ -35,8 +35,8 @@ dependencies {
     implementation("org.eclipse.edc:monitor-jdk-logger:$edcVersion")
     implementation("org.eclipse.edc:issuerservice-bom:$edcVersion")
     implementation("org.eclipse.edc:issuerservice-feature-sql-bom:$edcVersion")
+    implementation("org.eclipse.edc:participantcontext-config-store-sql$edcVersion")
     implementation("org.eclipse.edc:issuerservice-issuance:$edcVersion")
-
     implementation("org.eclipse.edc:token-lib:$edcVersion")
     implementation("org.eclipse.edc:identity-hub-spi:$edcVersion")
 
@@ -45,7 +45,6 @@ dependencies {
     // This module was removed in upstream EDC version 0.15.0, therefore using legacy version of it
     implementation("org.eclipse.edc:issuerservice-presentation-attestations:0.14.1")
 
-    runtimeOnly(project(":extensions:seed:super-user"))
     runtimeOnly(libs.postgres)
 
     runtimeOnly("org.slf4j:slf4j-simple:2.0.17")
