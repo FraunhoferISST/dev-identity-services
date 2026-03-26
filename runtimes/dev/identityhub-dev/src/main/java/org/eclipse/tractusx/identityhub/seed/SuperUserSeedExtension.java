@@ -71,7 +71,8 @@ public class SuperUserSeedExtension implements ServiceExtension {
     public void start() {
         // create super-user
         if (participantContextService.getParticipantContext(superUserParticipantId).succeeded()) { // already exists
-            monitor.debug("super-user already exists with ID '%s', will not re-create".formatted(superUserParticipantId));
+            monitor.debug("super-user already exists with ID '%s', forcing re-create".formatted(superUserParticipantId));
+            participantContextService.deleteParticipantContext(superUserParticipantId);
             return;
         }
         participantContextService.createParticipantContext(ParticipantManifest.Builder.newInstance()
