@@ -35,7 +35,7 @@ dependencies {
     implementation("org.eclipse.edc:monitor-jdk-logger:$edcVersion")
     implementation("org.eclipse.edc:issuerservice-bom:$edcVersion")
     implementation("org.eclipse.edc:issuerservice-feature-sql-bom:$edcVersion")
-    implementation("org.eclipse.edc:participantcontext-config-store-sql$edcVersion")
+    implementation("org.eclipse.edc:participantcontext-config-store-sql:$edcVersion")
     implementation("org.eclipse.edc:issuerservice-issuance:$edcVersion")
     implementation("org.eclipse.edc:token-lib:$edcVersion")
     implementation("org.eclipse.edc:identity-hub-spi:$edcVersion")
