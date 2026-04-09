@@ -40,7 +40,7 @@ dependencies {
     implementation("org.eclipse.edc:token-lib:$edcVersion")
     implementation("org.eclipse.edc:identity-hub-spi:$edcVersion")
 
-    implementation("org.eclipse.edc:vault-hashicorp:$edcVersion")
+    implementation(project(":extensions:store:fsvault"))
 
     // This module was removed in upstream EDC version 0.15.0, therefore using legacy version of it
     implementation("org.eclipse.edc:issuerservice-presentation-attestations:0.14.1")

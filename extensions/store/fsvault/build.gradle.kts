@@ -32,22 +32,7 @@ dependencies {
     val edcVersion = "0.15.1"
 
     implementation("org.eclipse.edc:connector-core:$edcVersion")
-    implementation("org.eclipse.edc:monitor-jdk-logger:$edcVersion")
-    implementation("org.eclipse.edc:identityhub-bom:$edcVersion")
-    implementation("org.eclipse.edc:identity-hub-spi:${edcVersion}")
-    implementation("org.eclipse.edc:identityhub-feature-sql-bom:$edcVersion")
     implementation("org.eclipse.edc:participantcontext-config-store-sql:$edcVersion")
-    implementation(project(":extensions:store:fsvault"))
-
-    implementation("com.nimbusds:nimbus-jose-jwt:10.7")
-    implementation("org.bouncycastle:bcpkix-jdk18on:1.83")
-    implementation("com.google.crypto.tink:tink:1.20.0")
-
-    runtimeOnly("org.slf4j:slf4j-simple:2.0.17")
-
-    testImplementation(libs.edc.lib.crypto)
-    testImplementation(libs.edc.lib.keys)
-    testImplementation(libs.edc.junit)
 }
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
