@@ -48,32 +48,22 @@ public class LocalFileSystemVault implements Vault {
 
     @Override
     public String resolveSecret(@Nullable String vaultPartition, String key) {
-        Path actualPath = vaultPartition == null ? defaultPartitionPath : path.resolve(vaultPartition);
-        return getFile(path.resolve(actualPath).resolve(key));
+        return resolveSecret(key);
     }
 
     @Override
     public Result<Void> storeSecret(@Nullable String vaultPartition, String key, String value) {
-        Path actualPath = vaultPartition == null ? defaultPartitionPath : path.resolve(vaultPartition);
-        if (storeFile(actualPath, key, value)) {
-            return Result.success();
-        } else  {
-            return Result.failure("Failed to store secret");
-        }
+        return storeSecret(key, value);
     }
 
     @Override
     public Result<Void> deleteSecret(@Nullable String vaultPartition, String key) {
-        Path actualPath = vaultPartition == null ? defaultPartitionPath : path.resolve(vaultPartition);
-        if (deleteFile(actualPath.resolve(key))) {
-            return Result.success();
-        } else {
-            return Result.failure("Failed to delete secret");
-        }
+        return deleteSecret(key);
     }
 
     private String getFile(Path path) {
         try {
+            monitor.info("Getting file: " + path.toString());
             return Files.readString(path);
         } catch (Exception ex) {
             monitor.warning("Local FileSystemVault getFile failed for path: " + path.toString());
@@ -89,6 +79,7 @@ public class LocalFileSystemVault implements Vault {
             }
 
             Files.write(path.resolve(name), value.getBytes());
+            monitor.info("Stored " + value + " at " + path.resolve(name));
             return true;
         } catch (Exception ex) {
             monitor.warning("Local FileSystemVault storeFile failed for path: " + path.resolve(name));
@@ -100,6 +91,7 @@ public class LocalFileSystemVault implements Vault {
     private boolean deleteFile(Path path) {
         try {
             Files.delete(path);
+            monitor.info("Deleted " + path);
             return true;
         } catch (Exception ex) {
             monitor.warning("Local FileSystemVault deleteFile failed for path: " + path.toString());
